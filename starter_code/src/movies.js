@@ -165,6 +165,46 @@ function turnHoursToMinutes(array){
 
 // BONUS Iteration: Best yearly rate average - Best yearly rate average
 
+function bestYearAvg (array){
+    let yearRate = array.map((movie) => {
+        return [movie.year, movie.rate];
+    })
+    let year = array.map((movie) =>{
+        return movie.year;
+    })
+
+    for (let i = 0; i<year.length; i++){
+        if(year.indexOf(year[i],i+1) !== -1){
+            year.splice(year.indexOf(year[i],i+1),1);
+            i--;
+        }
+    }
+
+    let avg = 0
+    let newAvg = 0
+    let res ={}
+    let sum
+    let count
+
+    for (let i = 0; i<year.length; i++){
+        sum = 0
+        count = 0
+        for (let j = 0; j<yearRate.length; j++){
+            if (yearRate[j][0] === year[i]){
+                sum+=yearRate[j][1];
+                count++;
+            }
+        }
+        avg = sum/count;
+        if(newAvg < avg){
+            newAvg = avg;
+            res.avgRate = newAvg;
+            res.year = year[i];
+        }
+    }
+    return res;
+}
+
 
 
 
