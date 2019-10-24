@@ -153,18 +153,15 @@ function turnHoursToMinutes(array){
         durArr[i] = durH + durM; 
     }
     
-    //create new object movies with direction in minutes.
+    //create new object movies with direction in minutes...its not actually a new one =(.
 
+    for(let i = 0; i<durArr.length; i++){
+        array[i].duration = durArr[i]
+    }
     
-    
-    console.log(durArr);
-    //return newArr
+
+    return array;
 }
-
-        /* 
-        movies.duration = durH + durM;
-        */
-
 
 // BONUS Iteration: Best yearly rate average - Best yearly rate average
 
